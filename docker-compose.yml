@@ -16,5 +16,6 @@ services:
     container_name: transport_backend
     ports:
       - "8000:8000"
+      - "19090:19090"
     depends_on:
       - ml_core
