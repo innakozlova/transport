@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  ml_core:
+    build:
+      context: .
+      dockerfile: Dockerfile.ml
+    container_name: ml_core
+    ports:
+      - "8001:8001"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: transport_backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ml_core
